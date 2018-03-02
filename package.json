@@ -1,0 +1,24 @@
+{
+  "name": "hellosocket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phemonick/helloSocket.git"
+  },
+  "author": "teleios",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phemonick/helloSocket/issues"
+  },
+  "homepage": "https://github.com/phemonick/helloSocket#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "open": "0.0.5",
+    "socket.io": "^2.0.4"
+  }
+}
