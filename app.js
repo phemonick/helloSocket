@@ -116,7 +116,7 @@ io.on('connection', function(socket){
 
  })
 
- 
-server.listen(serverPort, function(){
-   console.log('server up and running at %s port', serverPort);
+ const port = process.env.PORT || serverPort
+server.listen(port, function(){
+   console.log('server up and running at %s port', port);
  });
