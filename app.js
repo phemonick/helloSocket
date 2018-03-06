@@ -24,10 +24,10 @@ function socketIdsInRoom(name) {
   }
 }
  
-// app.get('/', function(req, res){
-//   console.log('get /');
-//   res.sendFile(__dirname + '/index.html');
-// });
+app.get('/', function(req, res){
+  console.log('get /');
+  res.sendFile(__dirname + '/index.html');
+});
  
 io.on('connection', function(socket){
   console.log("user connected");
