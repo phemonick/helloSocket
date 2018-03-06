@@ -11,6 +11,18 @@ var users = {};
 function sendTo(connection, message) {
    connection.send(message);
 }
+function socketIdsInRoom(name) {
+  var socketIds = io.nsps['/'].adapter.rooms[name];
+  if (socketIds) {
+    var collection = [];
+    for (var key in socketIds) {
+      collection.push(key);
+    }
+    return collection;
+  } else {
+    return [];
+  }
+}
  
 app.get('/', function(req, res){
   console.log('get /');
@@ -36,6 +48,15 @@ io.on('connection', function(socket){
     var to = io.sockets.connected[data.to];
     to.emit('exchange', data);
   });
+   socket.on('join', function(name, callback){
+    console.log('join', name);
+    var socketIds = socketIdsInRoom(name);
+    callback(socketIds);
+    socket.join(name);
+    socket.room = name;
+  });
+
+
 
   socket.on('login', (data)=>{
     console.log("User loggedIn", data.name);
