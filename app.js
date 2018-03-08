@@ -117,20 +117,19 @@ io.on('connection', function(socket){
       } )
   })
 
-  socket.on('call_rejected', (data)=>{
-    // send to d person calling
+  socket.on('call_busy', (data)=>{
     sockets[data.callername].emit('call_response', {
          type: "call_response",
-         response: "rejected",
+         response: "busy",
          responsefrom : data.from
       } )
   })
 
   socket.on('call_rejected', (data)=>{
     // send to d person calling
-    sockets[data.callername].emit('call_busy', {
-         type: "call_busy",
-         response: "busy",
+    sockets[data.callername].emit('call_response', {
+         type: "call_response",
+         response: "rejected",
          responsefrom : data.from
       } )
   })
