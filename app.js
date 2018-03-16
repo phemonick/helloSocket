@@ -87,6 +87,15 @@ io.on('connection', function(socket){
 
       }
   })
+  socket.on('call_disconnected', (data) => {
+    if(sockets[data.name]){
+      sockets[data.name].emit( 'call_disconnected', {
+           
+           callername: data.name,
+      
+        });
+    }
+  })
 
   socket.on('call_user', (data)=> {
     // chek if user u calling exist
