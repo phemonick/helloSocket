@@ -98,7 +98,8 @@ io.on('connection', function(socket){
           // emiting to d user who u calling
           sockets[data.name].emit( 'answer', {
            type: "answer",
-           callername: data.callername
+           callername: data.callername,
+           videoId: data.videoId
         });
       }else{
         socket.emit('call_response', {
