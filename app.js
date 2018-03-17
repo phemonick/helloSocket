@@ -104,6 +104,7 @@ io.on('connection', function(socket){
           console.log("user called");
           console.log(data.name);
           console.log(data.callername);
+          console.log(data.videoId);
           // emiting to d user who u calling
           sockets[data.name].emit( 'answer', {
            type: "answer",
